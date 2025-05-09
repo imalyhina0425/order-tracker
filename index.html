@@ -155,6 +155,15 @@
     color: #333;
   }
 }
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+}
+
+.table-wrapper table {
+  min-width: 600px;
+}
   </style>
 </head>
 <body>
@@ -190,7 +199,7 @@
         json.data.forEach(d => tableHTML += `<td>${d}</td>`);
         tableHTML += '</tr></tbody></table>';
 
-        resultDiv.innerHTML = tableHTML;
+        resultDiv.innerHTML = `<div class="table-wrapper">${tableHTML}</div>`;
       } catch (err) {
         console.error(err);
         resultDiv.innerHTML = '<p>Ошибка при получении данных</p>';
